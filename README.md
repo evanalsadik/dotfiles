@@ -77,3 +77,12 @@ git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZS
 ```
 git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
 ```
+
+	
+## References
+ - [how to use GNU Stow](https://youtu.be/y6XCebnB9gs?si=Q1cSd7Ui6GRGW6S4)
+ - [Oh my ZSH](https://github.com/ohmyzsh/ohmyzsh)
+ - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+ - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+ - [zsh-fast-syntax-highlighting](https://github.com/zdharma/fast-syntax-highlighting)
+ - [zsh-autocomplete](https://github.com/marlonrichert/zsh-autocomplete)
