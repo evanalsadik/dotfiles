@@ -107,5 +107,29 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Fungsi untuk memeriksa status eksekusi perintah
+zshaddhistory() {
+    local ret=$?
+    # Hanya simpan perintah yang berhasil (exit status 0)
+    if [[ $ret -eq 0 ]]; then
+        fc -p  # Simpan perintah ke history
+    fi
+    return $ret
+}
+
+# Preexec hook untuk menangkap perintah yang akan dieksekusi
+preexec() {
+    # Simpan perintah saat ini ke variabel _ZSH_COMMAND_BEFORE_EXEC
+    _ZSH_COMMAND_BEFORE_EXEC="$1"
+}
+
+# Precok hook untuk menyimpan perintah jika berhasil
+precmd() {
+    # Periksa status eksekusi perintah sebelumnya
+    if [[ $? -eq 0 ]]; then
+        print -s "$_ZSH_COMMAND_BEFORE_EXEC"  # Simpan perintah ke history
+    fi
+}
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
