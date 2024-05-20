@@ -1,5 +1,32 @@
 [user]
+	user = Evan Alsadik
 	name = Evan alsadik
 	email = evanalsadik21@gmail.com
 [core]
 	editor = nvim
+[init]
+ 	defaultBranch = main
+[web]
+	browser = google-chrome
+[github]
+	user = pksunkara
+	# token = token # TODO: fill token with exact value
+[alias]
+# 	a = add --all
+# 	ba = branch -a
+# 	bd = branch -D
+# 	ca = commit --amend
+# 	cm = commit -m
+# 	ch = checkout
+# 	chm = checkout master
+# 	chb = checkout -b
+ 	l = log --oneline --graph --all --abbrev-commit
+ 	ls = log --oneline --graph --all --stat
+# 	m = merge
+# 	ps = push
+# 	psm = push -u origin main
+# 	pl = pull
+# 	rb = rebase
+# 	r = remote
+# 	s = status
+# 	sq = rebase main --interactive
