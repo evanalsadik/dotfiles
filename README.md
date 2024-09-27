@@ -88,6 +88,7 @@ git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZS
 ## References
  - [how to use GNU Stow](https://youtu.be/y6XCebnB9gs?si=Q1cSd7Ui6GRGW6S4)
  - [Oh my ZSH](https://github.com/ohmyzsh/ohmyzsh)
+ - [PowerLevel10k](https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#oh-my-zsh)
  - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
  - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
  - [zsh-fast-syntax-highlighting](https://github.com/zdharma/fast-syntax-highlighting)
