@@ -24,22 +24,21 @@ vim.opt.rtp:prepend(lazypath)
 
 require 'core.keymaps'
 require 'core.options'
+require 'core.plugin-keymaps'
+
+-- Import color theme based on environment variable NVIM_THEME
+local default_color_scheme = 'carbonfox'
+local env_var_nvim_theme = os.getenv 'NVIM_THEME' or default_color_scheme
+
+-- Define a table of theme modules
+local themes = {
+  carbonfox = 'plugins.themes.carbonfox',
+  nord = 'plugins.themes.nord',
+  onedark = 'plugins.themes.onedark',
+}
+
+-- Setup plugins
 require('lazy').setup({
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v4.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-      -- "4rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-    }
-  },
-  {
-      -- "EdenEast/nightfox.nvim",
-      "cocopon/iceberg.vim",
-    lazy = false,
-    priority = 999,
-    -- config = config
-  },
+  require(themes[env_var_nvim_theme]),
+  require 'plugins.neo-tree',
 })
