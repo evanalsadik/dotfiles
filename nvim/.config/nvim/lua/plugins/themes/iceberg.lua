@@ -1,8 +1,8 @@
 return {
-  "cocopon/iceberg.vim",
+	"cocopon/iceberg.vim",
 	lazy = false,
 	priority = 999,
 	config = function()
-    vim.cmd('colorscheme iceberg')
-  end
+		vim.cmd("colorscheme iceberg")
+	end,
 }
