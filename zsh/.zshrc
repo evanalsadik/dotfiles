@@ -108,16 +108,6 @@ source $HOME/.oh-my-zsh/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Fungsi untuk memeriksa status eksekusi perintah
-zshaddhistory() {
-    local ret=$?
-    # Hanya simpan perintah yang berhasil (exit status 0)
-    if [[ $ret -eq 0 ]]; then
-        fc -p  # Simpan perintah ke history
-    fi
-    return $ret
-}
-
 # Preexec hook untuk menangkap perintah yang akan dieksekusi
 preexec() {
     # Simpan perintah saat ini ke variabel _ZSH_COMMAND_BEFORE_EXEC
@@ -128,11 +118,23 @@ preexec() {
 precmd() {
     # Periksa status eksekusi perintah sebelumnya
     if [[ $? -eq 0 ]]; then
-        print -s "$_ZSH_COMMAND_BEFORE_EXEC"  # Simpan perintah ke history
+        # Simpan perintah ke history, hanya jika berhasil
+        print -s "$_ZSH_COMMAND_BEFORE_EXEC"
     fi
 }
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# Mengatur file history dan ukurannya
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
+
+# Pastikan history di-share antar terminal dan simpan secara otomatis
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+
+# Powerlevel10k configuration
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PATH=$PATH:/usr/local/nvim/bin
+export PATH=$PATH:/usr/bin/latexmk
+
