@@ -44,13 +44,18 @@ stow -D
 If you're new to zsh/oh-my-zsh, do this.
 
 ```
-sudo apt install zsh zsh-autosuggestions zsh-syntax-highlighting zsh
+sudo apt install zsh zsh-autosuggestions zsh-syntax-highlighting
 ```
 
 ### Install Oh my ZSH.
 
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+(optional)
+```
+chsh -s $(which zsh)
 ```
 
 ### Install PowerLevel10k
