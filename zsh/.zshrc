@@ -109,34 +109,39 @@ source $HOME/.oh-my-zsh/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-# Fungsi untuk memeriksa status eksekusi perintah
-zshaddhistory() {
-    local ret=$?
-    # Hanya simpan perintah yang berhasil (exit status 0)
-    if [[ $ret -eq 0 ]]; then
-        fc -p  # Simpan perintah ke history
-    fi
-    return $ret
-}
-# Preexec hook untuk menangkap perintah yang akan dieksekusi
-preexec() {
-    # Simpan perintah saat ini ke variabel _ZSH_COMMAND_BEFORE_EXEC
-    _ZSH_COMMAND_BEFORE_EXEC="$1"
-}
-# Precok hook untuk menyimpan perintah jika berhasil
-precmd() {
-    # Periksa status eksekusi perintah sebelumnya
-    if [[ $? -eq 0 ]]; then
-        print -s "$_ZSH_COMMAND_BEFORE_EXEC"  # Simpan perintah ke history
-    fi
-}
+# # Function to check command execution status
+# zshaddhistory() {
+#     local ret=$?
+#     # Only save commands that succeed (exit status 0) and do not start with a space
+#     if [[ $ret -eq 0 && "$1" != " " ]]; then
+#         fc -p  # Save command to history
+#     fi
+#     return $ret
+# }
+#
+# # Preexec hook to capture the command to be executed
+# preexec() {
+#     # Save current command to variable _ZSH_COMMAND_BEFORE_EXEC
+#     _ZSH_COMMAND_BEFORE_EXEC="$1"
+# }
+#
+# # Precok hook to save the command if successful
+# precmd() {
+#     # Check the execution status of the previous command
+#     if [[ $? -eq 0 ]]; then
+#         # Abaikan jika perintah dimulai dengan spasi
+#         if [[ ! "$_ZSH_COMMAND_BEFORE_EXEC" =~ ^\  ]]; then
+#             print -s "$_ZSH_COMMAND_BEFORE_EXEC"  # Save command to history
+#         fi
+#     fi
+# }
 
-# Mengatur file history dan ukurannya
+# Set the history file and its size
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
 
-# Pastikan history di-share antar terminal dan simpan secara otomatis
+# Make sure history is shared between terminals and save automatically
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
 setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
