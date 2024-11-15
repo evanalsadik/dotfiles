@@ -109,6 +109,28 @@ source $HOME/.oh-my-zsh/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
+# Fungsi untuk memeriksa status eksekusi perintah
+zshaddhistory() {
+    local ret=$?
+    # Hanya simpan perintah yang berhasil (exit status 0)
+    if [[ $ret -eq 0 ]]; then
+        fc -p  # Simpan perintah ke history
+    fi
+    return $ret
+}
+# Preexec hook untuk menangkap perintah yang akan dieksekusi
+preexec() {
+    # Simpan perintah saat ini ke variabel _ZSH_COMMAND_BEFORE_EXEC
+    _ZSH_COMMAND_BEFORE_EXEC="$1"
+}
+# Precok hook untuk menyimpan perintah jika berhasil
+precmd() {
+    # Periksa status eksekusi perintah sebelumnya
+    if [[ $? -eq 0 ]]; then
+        print -s "$_ZSH_COMMAND_BEFORE_EXEC"  # Simpan perintah ke history
+    fi
+}
+
 # Mengatur file history dan ukurannya
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
