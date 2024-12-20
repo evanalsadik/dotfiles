@@ -1,0 +1,124 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Cython debug symbols
+cython_debug/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual environment
+.env/
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VS Code editor settings
+.vscode/
+
+# PyCharm / JetBrains IDE settings
+.idea/
+
+# Cache files
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.cache
+*.coverage
+*.coveragerc
+*.sql
+*.sqlite3
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+coverage.xml
+*.cover
+.hypothesis/
+
+# Django stuff:
+*.mo
+*.pot
+db.sqlite3
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# C extensions
+*.o
+*.so
+
+# Jupyter Notebook metadata
+**/.ipynb_checkpoints
+
+# macOS files
+.DS_Store
+
+# Windows files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE project files
+*.sublime-workspace
+*.sublime-project
+
+# Spyder editor files
+.spyderproject
+.spyproject
+
+# Python environment files
+*.env
+*.venv
+*.pip
+*.python-version
+
+# pipenv environment files
+Pipfile.lock
+
+# poetry environment files
+poetry.lock
+
+# mypy cache
+.mypy_cache/
+
+# profiling data
+.prof
+
+# Pyright
+.pyright/
+
+# Others
+*.bak
+*.swp
+*~
+
+# Neovim Lazy.nvim lock file
+lazy-lock.json
+
