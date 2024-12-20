@@ -33,6 +33,14 @@ Then, use GNU Stow to create symlinks
 stow .
 ```
 
+```
+stow <fol>
+```
+
+```
+stow stow -t ~ <folder>
+```
+
 and if you want to delete symlinks, type this on your terminal
 
 ```
