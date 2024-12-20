@@ -29,3 +29,4 @@ fi
 
 # Programming Language
 export PATH=$PATH:/usr/local/go/bin
+. "$HOME/.cargo/env"
