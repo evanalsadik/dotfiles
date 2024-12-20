@@ -34,7 +34,7 @@ stow .
 ```
 
 ```
-stow <fol>
+stow <folder>
 ```
 
 ```
