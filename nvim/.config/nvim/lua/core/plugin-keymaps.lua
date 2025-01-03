@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd("User", {
 		-- Keymap for Neotree
 		keymap.set("n", "<leader>n", "<CMD>Neotree toggle position=left<CR>", { desc = " Neotree file explorer" })
 
-		-- Keymap for Teleacope
+		-- Keymap for Telescope
 		-- Enable Telescope extensions if they are installed
 		pcall(require("telescope").load_extension, "fzf")
 		pcall(require("telescope").load_extension, "ui-select")
@@ -52,6 +52,38 @@ vim.api.nvim_create_autocmd("User", {
 		keymap.set("n", "<leader>sn", function()
 			builtin.find_files({ cwd = vim.fn.stdpath("config") })
 		end, { desc = "[S]earch [N]eovim files" })
+
+		-- Keymap Debugger (DAP)
+		local dap = require("dap")
+		local dapui = require("dapui")
+
+		keymap.set("n", "<leader>db", function()
+			dap.toggle_breakpoint()
+		end, { desc = "[D]ebug [B]reakpoint Toggle" })
+
+		keymap.set("n", "<leader>dc", function()
+			dap.continue()
+		end, { desc = "[D]ebug [C]ontinue/Start" })
+
+		keymap.set("n", "<leader>do", function()
+			dap.step_over()
+		end, { desc = "[D]ebug Step [O]ver" })
+
+		keymap.set("n", "<leader>di", function()
+			dap.step_into()
+		end, { desc = "[D]ebug Step [I]nto" })
+
+		keymap.set("n", "<leader>dO", function()
+			dap.step_out()
+		end, { desc = "[D]ebug Step [O]ut" })
+
+		keymap.set("n", "<leader>dq", function()
+			dap.terminate()
+		end, { desc = "[D]ebug [Q]uit/Terminate" })
+
+		keymap.set("n", "<leader>du", function()
+			dapui.toggle()
+		end, { desc = "[D]ebug [U]I Toggle" })
 	end,
 })
 
