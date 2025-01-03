@@ -25,6 +25,7 @@ return {
 			{ "<leader>s", desc = " Search" },
 			{ "<leader>t", desc = " Tab Settings" },
 			{ "<leader>w", desc = " Window Manager" },
+			{ "<leader>d", desc = " Debug Adapter" },
 		})
 	end,
 }
